@@ -1,3 +1,5 @@
+import styles from "./styles.module.css"
+
 // Aproveitando as propriedades do botão & adicionando outras
 type Props = React.ComponentProps<"button"> & {
     name: string
@@ -7,5 +9,9 @@ type Props = React.ComponentProps<"button"> & {
 }
 
 export function Button({name, ...rest }: Props) {
-    return <button {...rest}>{name}</button>
+    return (
+        <button className={styles.container} {...rest}>
+            <span>{name}</span>
+        </button>
+    )
 }
