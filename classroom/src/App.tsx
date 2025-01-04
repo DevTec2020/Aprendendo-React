@@ -1,15 +1,15 @@
 import "./global.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { Button } from "./components/button"
-// import { useMessage } from "./hooks/useMessage"
+//import { useMessage } from "./hooks/useMessage"
 
 import styles from "./app.module.css"
 
 
 export function App() {
-     const [count, setCount] = useState(0)
-    // const message = useMessage()
+    const [count, setCount] = useState(0)
+    //const message = useMessage()
 
 
     function handleAdd() {
@@ -17,8 +17,14 @@ export function App() {
     }
 
     function handleRemove() {
-        setCount(count -1)
+        if (count > 0) {
+            setCount(count -1)
+        }
     }
+
+    useEffect(() => {
+        console.log(`O Valor mudou para: ${count}`)
+    }, [count])
 
     return (
         <div className={styles.container}>
