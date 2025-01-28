@@ -3,6 +3,12 @@ import { useState } from "react"
 
 export default function App() {
   const [name, setName] = useState("")
+
+  function onSubmit(e: React.FormEvent<HTMLElement>) {
+    e.preventDefault()
+
+  }
+
   return (
     <div>
       <h1>Evento {name}</h1>
@@ -26,7 +32,7 @@ export default function App() {
 
         <textarea placeholder="Descrição" rows={4} />
 
-        <button type="submit">Salvar</button>
+        <button type="submit" onClick={onSubmit}>Salvar</button>
       </form>
     </div>
   )
