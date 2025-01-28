@@ -13,7 +13,7 @@ export default function App() {
     <div>
       <h1>Evento {name}</h1>
 
-      <form>
+      <form onSubmit={onSubmit}>
         <input type="text" placeholder="Nome do evento" onChange={(e)=> setName(e.target.value)} />
         <span className="error">Nome é obrigatório</span>
 
@@ -32,7 +32,7 @@ export default function App() {
 
         <textarea placeholder="Descrição" rows={4} />
 
-        <button type="submit" onClick={onSubmit}>Salvar</button>
+        <button type="submit">Salvar</button>
       </form>
     </div>
   )
