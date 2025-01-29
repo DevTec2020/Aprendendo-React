@@ -3,9 +3,17 @@ import "./App.css"
 import { Controller, useForm } from "react-hook-form"
 
 export default function App() {
-  const { control, handleSubmit } = useForm()
+  const { control, handleSubmit } = useForm<FormData>({
+    defaultValues: {
+      name: "",
+    }
+  })
 
-  function onSubmit(data) {
+  type FormData = {
+    name: string
+  }
+
+  function onSubmit(data: FormData) {
     console.log(data)
   }
 
@@ -23,8 +31,6 @@ export default function App() {
           )}
         />
 
-
-        <input type="text" placeholder="Nome do evento" />
         <span className="error">Nome é obrigatório</span>
 
         <input type="date" placeholder="Nome do evento" lang="pt-BR" />
